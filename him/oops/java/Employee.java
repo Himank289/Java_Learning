@@ -1,6 +1,6 @@
 package him.oops.java;
 
-public class Employee {
+public class Employee implements Comparable {
 	
 	private int empId;
 	private String empName;
@@ -101,6 +101,13 @@ public class Employee {
 		return empId;
 	}
 
+	 @Override 
+	  public int hashCode()
+	  {
+		  System.out.println("Employee's hashCode method called...");   
+		  return this.deptno;
+	  }
+	
 	@Override
 	public boolean equals(Object obj) //Object obj = e (Employee instance)
 	{
@@ -115,6 +122,12 @@ public class Employee {
 	  return
 	  "emp details:empid:"+this.empId +", empname:"+this.empName
 	  +", empsalary:"+this.empSalary +", empdeptno:"+this.deptno; }
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return this.empId-((Employee)o).empId;
+	}
 	 
 	
 	

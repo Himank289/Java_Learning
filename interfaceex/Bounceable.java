@@ -38,6 +38,9 @@ public interface Bounceable {
  interface Rollable
 {
 	void roll();
+	default void display() {
+		System.out.println("This is Roolablee interface, anythings thats Rollable can implement this..");
+	}
 }
 
 //implement - signing contract - implemnts all abstract methods
@@ -70,6 +73,10 @@ class Ball implements Bounceable,Rollable
 	public void roll() {
 		System.out.println(ballType+ " Ball is rolling...");
 		
+	}
+	public void display() {
+		Rollable.super.display();
+		Bounceable.super.display();
 	}
 	
 }
